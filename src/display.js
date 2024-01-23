@@ -25,6 +25,11 @@ import FormLabel from '@mui/material/FormLabel';
 import Checkbox from '@mui/material/Checkbox';
 import FormGroup from '@mui/material/FormGroup';
 
+import Dialog from '@mui/material/Dialog';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
+import { DialogActions } from '@mui/material';
+
 const countries = [
     { code: 'AD', label: 'Andorra', phone: '376' },
     {
@@ -633,8 +638,9 @@ const Display = () => {
                     </Table>
                 </TableContainer>
 
-                <Modal open={editIndex !== null} onClose={handleCancel}>
-                    <Box sx={modalStyle}>
+                <Dialog open={editIndex !== null} onClose={handleCancel} maxWidth="md" fullWidth>
+                    <DialogTitle>Edit Data</DialogTitle>
+                    <DialogContent dividers>
                         <Box
                             component="form"
                             sx={{
@@ -743,6 +749,8 @@ const Display = () => {
                             </FormGroup>
 
                         </Box>
+                    </DialogContent>
+                    <DialogActions>
                         <Box
                             component="form"
                             sx={{
@@ -757,10 +765,10 @@ const Display = () => {
                                 Cancel
                             </Button>
                         </Box>
-                    </Box>
-                </Modal>
+                    </DialogActions>
+                </Dialog>
             </div>
-        </div>
+        </div >
     );
 };
 
